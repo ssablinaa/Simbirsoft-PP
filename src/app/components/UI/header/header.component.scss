@@ -1,0 +1,35 @@
+$primary-color: #000;
+$secondary-color: #fff;
+$link-color: #00ff00;
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $secondary-color;
+  color: $primary-color;
+  padding: 10px 20px;
+
+  .menu {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin-right: 15px;
+
+      a {
+        color: $primary-color;
+        text-decoration: none;
+        transition: color 0.3s;
+        font-size: 16px;
+
+        &:hover {
+          color: $link-color;
+        }
+      }
+    }
+  }
+}
