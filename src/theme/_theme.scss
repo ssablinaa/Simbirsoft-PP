@@ -2,7 +2,7 @@
 
 @import './paleltte';
 
-$primary: mat.define-palette($primary-palatte, 500);
+$primary: mat.define-palette($primary-palatte, A100);
 $accent: mat.define-palette($accent-palette, 300, 500, 200);
 
 $warn: mat.define-palette($warn-palette);
