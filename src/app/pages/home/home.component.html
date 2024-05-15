@@ -42,31 +42,25 @@
     </mat-card>
   </div>
   <div class="container_two">
-    <mat-card class="two-card">
+    <mat-card *ngFor="let card of cardsSlice" class="two-card">
       <mat-card-header>
-        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-title>{{ card.title }}</mat-card-title>
       </mat-card-header>
-      <img
-        mat-card-image
-        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-        alt="Photo of a Shiba Inu"
-      />
+      <img mat-card-image [src]="card.imageSrc" [alt]="card.altText" />
       <mat-card-actions>
-        <button mat-button>Перейти в каталог</button>
-      </mat-card-actions>
-    </mat-card>
-    <mat-card class="three-card">
-      <mat-card-header>
-        <mat-card-title>Shiba Inu</mat-card-title>
-      </mat-card-header>
-      <img
-        mat-card-image
-        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-        alt="Photo of a Shiba Inu"
-      />
-      <mat-card-actions>
-        <button mat-button>Перейти в каталог</button>
+        <button mat-button>{{ card.buttonText }}</button>
       </mat-card-actions>
     </mat-card>
   </div>
 </div>
+<mat-paginator
+  [length]="this.cards.length"
+  [pageSize]="4"
+  [pageSizeOptions]="[4]"
+  hidePageSize
+  aria-label="Select page"
+  (page)="OnPageChange($event)"
+>
+</mat-paginator>
+
+<app-footer></app-footer>
