@@ -33,11 +33,11 @@
       </mat-card-header>
       <img
         mat-card-image
-        src="./assets/images/card1.png"
+        src="./assets/images/card_bg.png"
         alt="Photo one-card"
       />
       <mat-card-actions>
-        <button mat-button>Перейти в каталог</button>
+        <button mat-button>Подробнее</button>
       </mat-card-actions>
     </mat-card>
   </div>
@@ -46,7 +46,12 @@
       <mat-card-header>
         <mat-card-title>{{ card.title }}</mat-card-title>
       </mat-card-header>
-      <img mat-card-image [src]="card.imageSrc" [alt]="card.altText" />
+      <img
+        mat-card-image
+        [src]="card.imageSrc"
+        [alt]="card.altText"
+        class="image_cards"
+      />
       <mat-card-actions>
         <button mat-button>{{ card.buttonText }}</button>
       </mat-card-actions>
@@ -62,5 +67,4 @@
   (page)="OnPageChange($event)"
 >
 </mat-paginator>
-
 <app-footer></app-footer>

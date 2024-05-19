@@ -1,3 +1,11 @@
+$primary-color: #f97979;
+$primary-hover-color: #f53131;
+$secondary-color: #e0e0e0;
+$border-color: #b3b3b3;
+$text-color: #555;
+$highlight-color: rgb(246, 35, 11);
+$background-color: #fff;
+
 .content-container {
   display: flex;
   justify-content: space-between;
@@ -31,7 +39,7 @@
     margin: 0 auto;
     display: block;
     border-radius: 40px !important;
-    box-shadow: 0 5px 15px 0 rgb(246, 35, 11);
+    box-shadow: 0 5px 15px 0 $highlight-color;
     transition: 0.5s;
 
     @media (max-width: 900px) {
@@ -68,26 +76,26 @@
   width: 90%;
   display: inline-flex;
   flex-wrap: nowrap;
-  background-color: #fff;
+  background-color: $background-color;
   list-style-type: none;
 }
 
 .statistics-item {
   flex: 1;
   padding: 1rem 2rem;
-  border: 1px solid #b3b3b3;
+  border: 1px solid $border-color;
 }
 
 .statistics-value {
   font-size: 24px;
   font-size: 28px;
   font-size: 34px;
-  color: rgb(246, 35, 11);
+  color: $highlight-color;
 }
 
 .statistics-label {
   font-size: 14px;
-  color: #555;
+  color: $text-color;
   text-transform: lowercase;
 }
 .statistics-value,
@@ -151,20 +159,20 @@
 }
 mat-card-actions {
   padding: 16px;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid $secondary-color;
   display: flex;
   justify-content: center;
 
   button {
-    background-color: #f97979;
-    color: #fff;
+    background-color: $primary-color;
+    color: $background-color;
     border: none;
     padding: 8px 16px;
     cursor: pointer;
     transition: background-color 0.2s;
 
     &:hover {
-      background-color: #f53131;
+      background-color: $primary-hover-color;
     }
   }
 }
@@ -176,8 +184,13 @@ mat-card-header {
   mat-card-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #f97979;
+    color: $primary-color;
   }
+}
+.image_cards {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @media (max-width: 900px) {
