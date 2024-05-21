@@ -1,14 +1,6 @@
 import { Component, Injectable } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../../components/UI/header/header.component';
 
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import {
-  MatPaginatorIntl,
-  MatPaginatorModule,
-  PageEvent,
-} from '@angular/material/paginator';
+import { MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
 import { Subject } from 'rxjs';
 import { Card } from './card';
 

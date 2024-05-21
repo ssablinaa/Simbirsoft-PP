@@ -1,3 +1,5 @@
+$secondary-color: rgb(14, 0, 0);
+$white-color: #fff;
 .mat-toolbar {
   height: 60px;
   display: flex;
@@ -22,7 +24,7 @@
 }
 
 .mat-sidenav {
-  background-color: #ffffff;
+  background-color: $white-color;
   width: 160px;
 }
 
@@ -32,7 +34,7 @@
 }
 
 .side-menu-item {
-  color: rgb(14, 0, 0) !important;
+  color: $secondary-color !important;
   margin-top: 20px;
 }
 
