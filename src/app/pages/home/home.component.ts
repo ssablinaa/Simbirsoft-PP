@@ -1,7 +1,7 @@
 import { Component, Injectable } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/UI/header/header.component';
-import { FooterComponent } from '../../components/UI/footer/footer.component';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import {
@@ -34,18 +34,9 @@ export class MyCustomPaginatorIntl implements MatPaginatorIntl {
 
 @Component({
   selector: 'app-home',
-  standalone: true,
-  imports: [
-    CommonModule,
-    HeaderComponent,
-    FooterComponent,
-    MatCardModule,
-    MatButtonModule,
-    MatPaginatorModule,
-  ],
+
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  providers: [{ provide: MatPaginatorIntl, useClass: MyCustomPaginatorIntl }],
 })
 export class HomeComponent {
   public cards: Card[] = [
