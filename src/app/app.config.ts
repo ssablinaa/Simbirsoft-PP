@@ -1,9 +1,11 @@
-import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+// import { ApplicationConfig } from '@angular/core';
+// import { provideRouter } from '@angular/router';
 
-import { routes } from './app.routes';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+// import { routes } from './app.routes';
+// import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
-export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideAnimationsAsync()]
-};
+// export const appConfig: ApplicationConfig = {
+//   providers: [provideRouter(routes), provideAnimationsAsync()]
+// };
+
+//Это для standalone подхода. Для модулей не надо, мусор. 
