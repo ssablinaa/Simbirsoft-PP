@@ -1,4 +1,4 @@
-import { Component, Injectable } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Injectable } from '@angular/core';
 
 import { MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
 import { Subject } from 'rxjs';
@@ -28,6 +28,7 @@ export class MyCustomPaginatorIntl implements MatPaginatorIntl {
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
   public cards: Card[] = [
