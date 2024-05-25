@@ -1,36 +1,17 @@
 <mat-toolbar color="primary" class="footer-toolbar">
   <div class="container">
-    <div>
-      <div class="item">
-        <h3>Услуги</h3>
-        <ul>
-          <li><a href="#">Размещение проекта</a></li>
-          <li><a href="#">Спонсировать проект</a></li>
-          <li><a href="#">Оставить резюме</a></li>
-        </ul>
-      </div>
-      <div class="item">
-        <h3>О нас</h3>
-        <ul>
-          <li><a href="#">Компания</a></li>
-          <li><a href="#">Команда</a></li>
-          <li><a href="#">История</a></li>
-        </ul>
-      </div>
-      <div class="item">
-        <h3>Карьера</h3>
-        <ul>
-          <li><a href="#">Вакансии</a></li>
-          <li><a href="#">Успехи сотрудников</a></li>
-          <li><a href="#">Преимущества</a></li>
-        </ul>
-      </div>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-snapchat"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-      </div>
+    <div class="item" *ngFor="let section of footerSections">
+      <h3>{{ section.title }}</h3>
+      <ul>
+        <li *ngFor="let link of section.links">
+          <a [href]="link.url">{{ link.text }}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="social-icons">
+      <a *ngFor="let icon of socialIcons" [href]="icon.url">
+        <i [class]="icon.iconClass"></i>
+      </a>
     </div>
   </div>
 </mat-toolbar>

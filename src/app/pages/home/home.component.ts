@@ -2,7 +2,7 @@ import { Component, Injectable } from '@angular/core';
 
 import { MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
 import { Subject } from 'rxjs';
-import { Card } from './card';
+import { Card } from '../../interfaces/card.interface';
 
 @Injectable()
 export class MyCustomPaginatorIntl implements MatPaginatorIntl {
@@ -26,7 +26,6 @@ export class MyCustomPaginatorIntl implements MatPaginatorIntl {
 
 @Component({
   selector: 'app-home',
-
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -84,7 +83,6 @@ export class HomeComponent {
   public cardsSlice = this.cards.slice(0, 4);
 
   OnPageChange(event: PageEvent) {
-    console.log(event);
     const startindex = event.pageIndex * event.pageSize;
     let endIndex = startindex + event.pageSize;
     if (endIndex > this.cards.length) {
