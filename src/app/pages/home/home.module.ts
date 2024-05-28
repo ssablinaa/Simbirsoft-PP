@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HomeComponent, MyCustomPaginatorIntl } from './home.component';
+import { HomeComponent, CardCustomPaginator } from './home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FooterModule } from '../../components/UI/footer/footer.module';
 import { HeaderModule } from '../../components/UI/header/header.module';
@@ -22,7 +22,7 @@ import {
     MatPaginatorModule,
     HeaderModule,
   ],
-  providers: [{ provide: MatPaginatorIntl, useClass: MyCustomPaginatorIntl }],
+  providers: [{ provide: MatPaginatorIntl, useClass: CardCustomPaginator }],
   bootstrap: [],
 })
 export class HomeModule {}

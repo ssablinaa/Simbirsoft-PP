@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 import { Card } from '../../interfaces/card.interface';
 
 @Injectable()
-export class MyCustomPaginatorIntl implements MatPaginatorIntl {
+export class CardCustomPaginator implements MatPaginatorIntl {
   changes = new Subject<void>();
 
   firstPageLabel = $localize`First page`;

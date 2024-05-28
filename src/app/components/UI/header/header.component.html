@@ -6,14 +6,13 @@
     <span id="menuTitle" class="mat-h3">Craudfan</span>
   </div>
   <div class="center-container">
-    <a mat-button routerLink="" class="top-menu-item">Главная</a>
-    <a mat-button routerLink="/music" class="top-menu-item">Музыка</a>
-    <a mat-button routerLink="/art" class="top-menu-item">Искусство</a>
-    <a mat-button routerLink="/dance" class="top-menu-item">Танец</a>
-    <a mat-button routerLink="/sport" class="top-menu-item">Спорт</a>
-    <a mat-button routerLink="/games" class="top-menu-item">Игры</a>
-    <a mat-button routerLink="/films" class="top-menu-item">Фильмы</a>
-    <a mat-button routerLink="/comics" class="top-menu-item">Комиксы</a>
+    <a
+      *ngFor="let item of menuItems"
+      mat-button
+      [routerLink]="item.link"
+      class="top-menu-item"
+      >{{ item.label }}</a
+    >
   </div>
   <div class="right-container">
     <button mat-button>Вход</button>
@@ -22,84 +21,17 @@
     </button>
   </div>
 </mat-toolbar>
-
 <mat-sidenav-container>
   <mat-sidenav #sidenav [fixedInViewport]="true" [fixedTopGap]="60" mode="side">
-    <div class="side-nav-items">
-      <div>
-        <a
-          (click)="sidenav.close()"
-          mat-button
-          routerLink=""
-          class="side-menu-item"
-          >Главная</a
-        >
-      </div>
-
-      <div>
-        <a
-          (click)="sidenav.close()"
-          mat-button
-          routerLink="/music"
-          class="side-menu-item"
-          >Музыка</a
-        >
-      </div>
-
-      <div>
-        <a
-          (click)="sidenav.close()"
-          mat-button
-          routerLink="/art"
-          class="side-menu-item"
-          >Искусство</a
-        >
-      </div>
-      <div>
-        <a
-          (click)="sidenav.close()"
-          mat-button
-          routerLink="/dance"
-          class="side-menu-item"
-          >Танец</a
-        >
-      </div>
-      <div>
-        <a
-          (click)="sidenav.close()"
-          mat-button
-          routerLink="/sport"
-          class="side-menu-item"
-          >Спорт</a
-        >
-      </div>
-      <div>
-        <a
-          (click)="sidenav.close()"
-          mat-button
-          routerLink="/games"
-          class="side-menu-item"
-          >Игры</a
-        >
-      </div>
-      <div>
-        <a
-          (click)="sidenav.close()"
-          mat-button
-          routerLink="/films"
-          class="side-menu-item"
-          >Фильмы</a
-        >
-      </div>
-      <div>
-        <a
-          (click)="sidenav.close()"
-          mat-button
-          routerLink="/comics"
-          class="side-menu-item"
-          >Комиксы</a
-        >
-      </div>
+    <div *ngFor="let item of menuItems">
+      <a
+        (click)="sidenav.close()"
+        mat-button
+        [routerLink]="item.link"
+        class="side-menu-item"
+      >
+        {{ item.label }}
+      </a>
     </div>
   </mat-sidenav>
 </mat-sidenav-container>

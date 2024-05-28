@@ -1,5 +1,4 @@
-$secondary-color: rgb(14, 0, 0);
-$white-color: #fff;
+@import '../../../../assets/colors.scss';
 .mat-toolbar {
   height: 60px;
   display: flex;
@@ -34,7 +33,7 @@ $white-color: #fff;
 }
 
 .side-menu-item {
-  color: $secondary-color !important;
+  color: $black-color;
   margin-top: 20px;
 }
 
