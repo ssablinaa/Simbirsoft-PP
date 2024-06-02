@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header.component';
-import { routes } from './header.routes';
+import { MainRoutes, routes } from './header.routes';
 
 @NgModule({
   declarations: [HeaderComponent],
@@ -21,6 +21,7 @@ import { routes } from './header.routes';
     MatFormFieldModule,
     MatInputModule,
     MatSidenavModule,
+    MainRoutes,
   ],
   exports: [HeaderComponent],
 })

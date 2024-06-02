@@ -1,4 +1,5 @@
 @import '../../../assets/colors.scss';
+
 .content-container {
   display: flex;
   justify-content: space-between;
@@ -22,18 +23,6 @@
   p {
     margin: 0;
   }
-
-  // .mat-h3 {
-  //   font-size: 30px;
-  //   text-align: center;
-  //   margin-bottom: 10px;
-  // }
-
-  // .mat-h4 {
-  //   font-size: 28px;
-  //   text-align: center;
-  //   margin-bottom: 20px;
-  // }
 
   .btn-new {
     width: 40%;
@@ -69,8 +58,8 @@
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
   overflow-x: auto;
-  margin: 0 4rem;
-  padding: 1rem 2rem;
+  margin: 0 4em;
+  padding: 1em 2em;
 }
 
 .statistics-list {
@@ -83,14 +72,12 @@
 
 .statistics-item {
   flex: 1;
-  padding: 1rem 2rem;
+  padding: 1em 2em;
   border: 1px solid $border-color;
 }
 
 .statistics-value {
-  font-size: 24px;
   font-size: 28px;
-  font-size: 34px;
   color: $highlight-color;
 }
 
@@ -107,15 +94,15 @@
 
 @media (max-width: 900px) {
   .statistics-container {
-    margin: 0 1rem;
-    padding: 1rem;
+    margin: 0 1em;
+    padding: 1em;
     max-width: 100%;
     overflow: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 1em;
   }
 
   .statistics-value {
@@ -125,12 +112,12 @@
 
   .statistics-item {
     flex: 1 0 300px;
-    padding: 1rem;
+    padding: 1em;
     max-width: 100%;
     box-sizing: border-box;
   }
 }
-.container_left {
+.container_main {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -139,7 +126,7 @@
   padding: 20px;
 }
 
-.container_main,
+.container_left,
 .container_additional {
   width: 40%;
   flex: 1;
@@ -148,7 +135,7 @@
   gap: 20px;
 }
 
-.container_main {
+.container_left {
   margin-right: 5%;
 }
 
@@ -157,20 +144,19 @@
 }
 
 .container_cards {
-  width: 300px;
+  width: calc(50% - 20px);
   height: 400px;
   display: flex;
   flex-direction: column;
+  margin-right: 0;
 }
 
 .image-container {
   width: 100%;
   height: 70%;
-  position: relative;
 }
 
 .image-container img {
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -203,7 +189,7 @@ mat-card-header {
   border-bottom: 1px solid;
 
   mat-card-title {
-    font-size: 1.5rem;
+    font-size: 1.5em;
     font-weight: 700;
     color: $primary-color;
   }
@@ -211,16 +197,15 @@ mat-card-header {
 .image-cards {
   width: 100%;
   padding-top: 75%;
-  position: relative;
 }
 
 @media (max-width: 900px) {
-  .container_left {
+  .container_main {
     padding: 10px;
     gap: 10px;
   }
 
-  .container_main,
+  .container_left,
   .container_additional {
     width: 100%;
     margin-right: 0;
@@ -229,7 +214,6 @@ mat-card-header {
 
   .one-card,
   .container_cards {
-    width: 100%;
-    margin: 0;
+    flex: 1 100%;
   }
 }

@@ -22,7 +22,7 @@
   </div>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav #sidenav [fixedInViewport]="true" [fixedTopGap]="60" mode="side">
+  <mat-sidenav #sidenav [fixedInViewport]="true" mode="side">
     <div *ngFor="let item of menuItems">
       <a
         (click)="sidenav.close()"
