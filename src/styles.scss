@@ -1,1 +1,14 @@
+@use '@angular/material' as mat;
+@import './theme/_theme';
+html,
+body {
+  height: 100%;
+}
 
+body {
+  margin: 0;
+  font-family: Rubic, 'Helvetica Neue', sans-serif;
+}
+.footer {
+  bottom: 0;
+}

@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+  <div class="left-container">
+    <button mat-icon-button (click)="sidenav.toggle()" id="menuIcon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span id="menuTitle" class="mat-h3">Craudfan</span>
+  </div>
+  <div class="center-container">
+    <a
+      *ngFor="let item of menuItems"
+      mat-button
+      [routerLink]="item.link"
+      class="top-menu-item"
+      >{{ item.label }}</a
+    >
+  </div>
+  <div class="right-container">
+    <button mat-button>Вход</button>
+    <button mat-flat-button color="accent" class="sign_button">
+      Регистрация
+    </button>
+  </div>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [fixedInViewport]="true" mode="side">
+    <div *ngFor="let item of menuItems">
+      <a
+        (click)="sidenav.close()"
+        mat-button
+        [routerLink]="item.link"
+        class="side-menu-item"
+      >
+        {{ item.label }}
+      </a>
+    </div>
+  </mat-sidenav>
+</mat-sidenav-container>

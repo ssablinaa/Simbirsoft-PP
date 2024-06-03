@@ -1,0 +1,22 @@
+@use '@angular/material' as mat;
+
+@import './paleltte';
+
+$primary: mat.define-palette($primary-palatte, A100);
+$accent: mat.define-palette($accent-palette, 300, 500, 200);
+
+$warn: mat.define-palette($warn-palette);
+
+$theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
+
+@include mat.all-component-themes($theme);
