@@ -1,0 +1,64 @@
+<form [formGroup]="authForm" (ngSubmit)="onSubmit_authForm()">
+  <div class="authForm__content">
+    <label for="id_userName" class="authForm__label">Имя </label>
+    <input
+      id="id_userName"
+      name="userName"
+      formControlName="userName"
+      class="authForm__input"
+    />
+  </div>
+  <div
+    class="authForm__error"
+    *ngIf="
+      authForm.controls['userName'].invalid &&
+      authForm.controls['userName'].touched
+    "
+  >
+    Неверно указано имя!
+  </div>
+  <div class="authForm__content">
+    <label for="id_userEmail" class="authForm__label">Email </label>
+    <input
+      id="id_userEmail"
+      name="userEmail"
+      formControlName="userEmail"
+      class="authForm__input"
+    />
+  </div>
+  <div
+    class="authForm__error"
+    *ngIf="
+      authForm.controls['userEmail'].invalid &&
+      authForm.controls['userEmail'].touched
+    "
+  >
+    Неверно указан email!
+  </div>
+  <div class="authForm__content">
+    <label for="id_userPhone" class="authForm__label">Телефон</label>
+    <input
+      id="id_userPhone"
+      name="userPhone"
+      formControlName="userPhone"
+      class="authForm__input"
+    />
+  </div>
+  <div
+    class="authForm__error"
+    *ngIf="
+      authForm.controls['userPhone'].invalid &&
+      authForm.controls['userPhone'].touched
+    "
+  >
+    Неверно указан номер телефона!
+  </div>
+
+  <button
+    class="authForm__button authForm__button_disabled"
+    type="submit"
+    [disabled]="authForm.invalid"
+  >
+    Сохранить
+  </button>
+</form>

@@ -5,6 +5,7 @@ import { HomeModule } from './pages/home/home.module';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { routes } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthModalModule } from './auth-modal/auth-modal.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     RouterOutlet,
     HomeModule,
+    AuthModalModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
