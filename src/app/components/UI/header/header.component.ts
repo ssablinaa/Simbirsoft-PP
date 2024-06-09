@@ -12,12 +12,7 @@ export class HeaderComponent {
   constructor(public dialog: MatDialog) {}
 
   openSign(): void {
-    this.dialog.open(AuthModalComponent, {
-      width: '600px',
-      height: '500px',
-      maxWidth: '80vw',
-      maxHeight: '50vh',
-    });
+    this.dialog.open(AuthModalComponent, {});
   }
   menuItems = [
     { label: 'Главная', link: '' },

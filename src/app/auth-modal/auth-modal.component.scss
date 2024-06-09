@@ -1,5 +1,106 @@
-.authForm {
+@import '../../assets/colors.scss';
+.auth-modal {
+  // width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid $secondary-color;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px $black-color;
+  background-color: $white-color;
+  // @media (max-width: 900px) {
+  //   width: 300px;
+  //   margin-left: 0;
+  //   margin-bottom: 20px;
+  // }
+  // @media (min-width: 900px) {
+  //   width: 400px;
+  //   margin-left: 0;
+  //   margin-bottom: 20px;
+  // }
+}
+.auth-modal__form-button-close {
+  position: absolute;
+  width: 40px;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  background-color: $primary-color;
+}
+
+.auth-modal__img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100px;
+  border-radius: 50%;
+}
+
+.auth-modal__form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+.auth-modal__form-content {
+  margin-bottom: 20px;
+}
+
+.auth-modal__form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  color: $text-color;
+}
+
+.auth-modal__form-input {
+  margin: 0;
+  padding: 10px;
+  border: 3px solid;
+  border-radius: 5px;
+  width: 380px;
+  border-color: $primary-color;
+  background-color: $white-color;
+}
+
+.auth-modal__form-input:focus {
+  border-color: $primary-color;
+  outline: none;
+}
+
+.auth-modal__form-error {
+  margin-top: 8px;
+  font-size: 12px;
+  color: $highlight-color;
+}
+
+.auth-modal__form-button {
+  margin: 0 75px;
+  padding: 10px;
+  border: 3px solid;
+  border-radius: 5px;
+  width: 250px;
+  background-color: $primary-color;
+  cursor: pointer;
+}
+
+.auth-modal__form-button:disabled {
+  background-color: $white-color;
+  cursor: not-allowed;
+}
+
+.auth-modal__form-button:not(:disabled):hover {
+  background-color: $primary-hover-color;
+  border-color: $primary-color;
+}
+.auth-modal__password-container {
+  position: relative;
+}
+
+.auth-modal__password-container button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(0%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }

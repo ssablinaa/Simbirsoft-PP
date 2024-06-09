@@ -8,6 +8,7 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-auth-modal',
@@ -16,56 +17,43 @@ import {
 })
 export class AuthModalComponent {
   users: any[] = [];
+  hidePassword = true;
 
   onClicked = new EventEmitter<string>();
 
   authForm: FormGroup = new FormGroup({
     userName: new FormControl('', Validators.required),
-    userEmail: new FormControl('', [Validators.required, Validators.email]),
-    userPhone: new FormControl('', Validators.pattern('[0-9]{11}')),
+    userEmail: new FormControl('', [
+      Validators.required,
+      Validators.email,
+      Validators.maxLength(150),
+    ]),
+    userPassword: new FormControl('', [Validators.maxLength(150)]),
   });
 
-  // formFields = [
-  //   {
-  //     label: 'Имя',
-  //     id: 'id_userName',
-  //     name: 'userName',
-  //     type: 'text',
-  //     errorMessage: 'Неверно указано имя!',
-  //   },
-  //   {
-  //     label: 'Email',
-  //     id: 'id_userEmail',
-  //     name: 'userEmail',
-  //     type: 'email',
-  //     errorMessage: 'Неверно указан email!',
-  //   },
-  //   {
-  //     label: 'Телефон',
-  //     id: 'id_userPhone',
-  //     name: 'userPhone',
-  //     type: 'number',
-  //     errorMessage: 'Неверно указан номер телефона!',
-  //   },
-  // ];
-
-  constructor() {
+  constructor(private dialogRef: MatDialogRef<AuthModalComponent>) {
     this.onreInitForm();
-  }
-
-  click(value1: string, value2: string, value3: string) {
-    this.onClicked.emit('Вы ввели ' + value1 + value2 + value3);
   }
 
   onSubmit_authForm() {
     this.users.push(this.authForm.getRawValue());
   }
+  onClose(): void {
+    this.dialogRef.close();
+  }
+  togglePasswordVisibility(): void {
+    this.hidePassword = !this.hidePassword;
+  }
 
   onreInitForm() {
     this.authForm = new FormGroup({
       userName: new FormControl('', Validators.required),
-      userEmail: new FormControl('', [Validators.required, Validators.email]),
-      userPhone: new FormControl('', Validators.pattern('[0-9]{11}')),
+      userEmail: new FormControl('', [
+        Validators.required,
+        Validators.email,
+        Validators.maxLength(150),
+      ]),
+      userPassword: new FormControl('', [Validators.maxLength(150)]),
     });
   }
 }
