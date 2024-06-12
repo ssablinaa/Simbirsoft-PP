@@ -9,6 +9,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-auth-modal',
@@ -28,10 +29,16 @@ export class AuthModalComponent {
       Validators.email,
       Validators.maxLength(150),
     ]),
-    userPassword: new FormControl('', [Validators.maxLength(150)]),
+    userPassword: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(150),
+    ]),
   });
 
-  constructor(private dialogRef: MatDialogRef<AuthModalComponent>) {
+  constructor(
+    private dialogRef: MatDialogRef<AuthModalComponent>,
+    private userService: UserService,
+  ) {
     this.onreInitForm();
   }
 
@@ -44,6 +51,11 @@ export class AuthModalComponent {
   togglePasswordVisibility(): void {
     this.hidePassword = !this.hidePassword;
   }
+  onSave() {
+    if (this.authForm.valid) {
+      this.userService.login();
+    }
+  }
 
   onreInitForm() {
     this.authForm = new FormGroup({
@@ -53,7 +65,10 @@ export class AuthModalComponent {
         Validators.email,
         Validators.maxLength(150),
       ]),
-      userPassword: new FormControl('', [Validators.maxLength(150)]),
+      userPassword: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(150),
+      ]),
     });
   }
 }

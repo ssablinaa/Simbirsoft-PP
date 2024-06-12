@@ -7,11 +7,7 @@
     <mat-icon>close</mat-icon>
   </button>
   <img class="auth-modal__img" src="./assets/images/avatar.png" alt="Logo" />
-  <form
-    class="auth-modal__form"
-    [formGroup]="authForm"
-    (ngSubmit)="onSubmit_authForm()"
-  >
+  <form class="auth-modal__form" [formGroup]="authForm" (ngSubmit)="onSave()">
     <div class="auth-modal__form-content">
       <label for="id_userName" class="auth-modal__form-label">Имя </label>
       <input
