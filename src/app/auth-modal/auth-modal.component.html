@@ -7,7 +7,7 @@
     <mat-icon>close</mat-icon>
   </button>
   <img class="auth-modal__img" src="./assets/images/avatar.png" alt="Logo" />
-  <form class="auth-modal__form" [formGroup]="authForm" (ngSubmit)="onSave()">
+  <form class="auth-modal__form" [formGroup]="authForm">
     <div class="auth-modal__form-content">
       <label for="id_userName" class="auth-modal__form-label">Имя </label>
       <input
@@ -76,6 +76,7 @@
     <button
       class="auth-modal__form-button auth-modal__form-button_disabled"
       type="submit"
+      (click)="onSave()"
       [disabled]="authForm.invalid"
     >
       Сохранить

@@ -1,22 +1,13 @@
 @import '../../assets/colors.scss';
 .auth-modal {
-  // width: 400px;
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid $secondary-color;
-  border-radius: 16px;
   box-shadow: 0 4px 8px $black-color;
   background-color: $white-color;
-  // @media (max-width: 900px) {
-  //   width: 300px;
-  //   margin-left: 0;
-  //   margin-bottom: 20px;
-  // }
-  // @media (min-width: 900px) {
-  //   width: 400px;
-  //   margin-left: 0;
-  //   margin-bottom: 20px;
-  // }
+  width: 400px;
+  @media (max-width: 768px) {
+    width: 250px;
+  }
 }
 .auth-modal__form-button-close {
   position: absolute;
@@ -37,10 +28,7 @@
 .auth-modal__form {
   display: flex;
   flex-direction: column;
-}
-
-.auth-modal__form-content {
-  margin-bottom: 20px;
+  gap: 10px;
 }
 
 .auth-modal__form-label {
@@ -52,13 +40,16 @@
 }
 
 .auth-modal__form-input {
-  margin: 0;
+  margin: auto;
   padding: 10px;
   border: 3px solid;
   border-radius: 5px;
   width: 380px;
   border-color: $primary-color;
   background-color: $white-color;
+  @media (max-width: 768px) {
+    width: 230px;
+  }
 }
 
 .auth-modal__form-input:focus {
@@ -67,19 +58,22 @@
 }
 
 .auth-modal__form-error {
-  margin-top: 8px;
   font-size: 12px;
-  color: $highlight-color;
+  color: $black-color;
+  font-weight: 700;
 }
 
 .auth-modal__form-button {
-  margin: 0 75px;
+  margin: auto;
   padding: 10px;
   border: 3px solid;
   border-radius: 5px;
   width: 250px;
   background-color: $primary-color;
   cursor: pointer;
+  @media (max-width: 768px) {
+    width: 100px;
+  }
 }
 
 .auth-modal__form-button:disabled {

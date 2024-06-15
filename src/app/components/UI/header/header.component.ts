@@ -10,15 +10,10 @@ import { UserService } from '../../../services/user.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  isLoggedIn = false;
   constructor(
     public dialog: MatDialog,
-    private userService: UserService,
-  ) {
-    this.userService.isLoggedIn().subscribe((loggedIn) => {
-      this.isLoggedIn = loggedIn;
-    });
-  }
+    public userService: UserService,
+  ) {}
 
   openSign(): void {
     this.dialog.open(AuthModalComponent, {});
@@ -26,9 +21,7 @@ export class HeaderComponent {
   logout() {
     this.userService.logout();
   }
-  login() {
-    this.userService.login();
-  }
+
   menuItems = [
     { label: 'Главная', link: '' },
     { label: 'Музыка', link: '/music' },

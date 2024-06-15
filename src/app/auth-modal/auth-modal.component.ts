@@ -1,13 +1,5 @@
-import { Component } from '@angular/core';
-import { EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {
-  FormsModule,
-  FormBuilder,
-  FormGroup,
-  FormControl,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { UserService } from '../services/user.service';
 
@@ -15,12 +7,10 @@ import { UserService } from '../services/user.service';
   selector: 'app-auth-modal',
   templateUrl: './auth-modal.component.html',
   styleUrl: './auth-modal.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthModalComponent {
-  users: any[] = [];
   hidePassword = true;
-
-  onClicked = new EventEmitter<string>();
 
   authForm: FormGroup = new FormGroup({
     userName: new FormControl('', Validators.required),
@@ -42,9 +32,6 @@ export class AuthModalComponent {
     this.onreInitForm();
   }
 
-  onSubmit_authForm() {
-    this.users.push(this.authForm.getRawValue());
-  }
   onClose(): void {
     this.dialogRef.close();
   }
@@ -54,6 +41,7 @@ export class AuthModalComponent {
   onSave() {
     if (this.authForm.valid) {
       this.userService.login();
+      this.dialogRef.close();
     }
   }
 

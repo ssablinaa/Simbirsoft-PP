@@ -1,57 +1,80 @@
 @import '../../../../assets/colors.scss';
-.mat-toolbar {
+
+.toolbar {
+  background-color: $white-color;
   height: 60px;
   display: flex;
   justify-content: space-between;
   padding-left: 6%;
   padding-right: 6%;
+
+  &__left-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    height: 46px;
+    line-height: 64px;
+  }
+
+  &__sign-button {
+    margin-left: 10px;
+  }
+
+  &__menu-icon {
+    @media (min-width: 900px) {
+      display: none;
+    }
+  }
+
+  &__top-menu-item {
+    @media (max-width: 900px) {
+      display: none;
+    }
+  }
+
+  &__right-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__account-icon {
+    margin-right: 10px;
+    color: $primary-color;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logout-button,
+  &__login-button,
+  &__sign-button {
+    display: flex;
+    align-items: center;
+    color: $text-color;
+  }
+
+  &__sign-button--accent {
+    background-color: $primary-color;
+    color: $white-color;
+  }
 }
 
-.left-container {
-  display: flex;
-  align-items: center;
-}
-
-.mat-toolbar {
-  height: 64px;
-}
-
-.mat-h3 {
-  height: 46px;
-  line-height: 64px;
-}
-
-.sign_button {
-  margin-left: 10px;
-}
-
-.mat-sidenav {
+.sidenav {
   background-color: $white-color;
   width: 160px;
-}
 
-.side-nav-items {
-  display: flexbox;
-  flex-direction: column;
-}
-
-.side-menu-item {
-  color: $black-color;
-  margin-top: 20px;
-}
-
-@media (min-width: 900px) {
-  #menuIcon {
-    display: none;
+  &__items {
+    display: flex;
+    flex-direction: column;
   }
 
-  .mat-sidenav {
-    display: none;
+  &__item {
+    color: $black-color;
+    margin-top: 20px;
   }
-}
 
-@media (max-width: 900px) {
-  .top-menu-item {
+  @media (min-width: 900px) {
     display: none;
   }
 }

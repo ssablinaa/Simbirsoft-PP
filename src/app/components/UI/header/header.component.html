@@ -1,76 +1,60 @@
-<!-- <mat-toolbar color="primary">
-  <div class="left-container">
-    <button mat-icon-button (click)="sidenav.toggle()" id="menuIcon">
+<mat-toolbar class="toolbar toolbar--primary">
+  <div class="toolbar__left-container">
+    <button
+      mat-icon-button
+      class="toolbar__menu-icon"
+      (click)="sidenav.toggle()"
+      id="menuIcon"
+    >
       <mat-icon>menu</mat-icon>
     </button>
-    <span id="menuTitle" class="mat-h3">Craudfan</span>
+    <span id="menuTitle" class="toolbar__menu-title">Craudfan</span>
   </div>
-  <div class="center-container">
+  <div class="toolbar__center-container">
     <a
       *ngFor="let item of menuItems"
       mat-button
       [routerLink]="item.link"
-      class="top-menu-item"
+      class="toolbar__top-menu-item"
       >{{ item.label }}</a
     >
   </div>
-  <div class="right-container">
-    <button mat-button (click)="openSign()">Вход</button>
-    <button mat-flat-button color="accent" class="sign_button">
-      Регистрация
-    </button>
-  </div>
-</mat-toolbar>
-<mat-sidenav-container>
-  <mat-sidenav #sidenav [fixedInViewport]="true" mode="side">
-    <div *ngFor="let item of menuItems">
-      <a
-        (click)="sidenav.close()"
-        mat-button
-        [routerLink]="item.link"
-        class="side-menu-item"
-      >
-        {{ item.label }}
-      </a>
-    </div>
-  </mat-sidenav>
-</mat-sidenav-container> -->
-<mat-toolbar color="primary">
-  <div class="left-container">
-    <button mat-icon-button (click)="sidenav.toggle()" id="menuIcon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span id="menuTitle" class="mat-h3">Craudfan</span>
-  </div>
-  <div class="center-container">
-    <a
-      *ngFor="let item of menuItems"
-      mat-button
-      [routerLink]="item.link"
-      class="top-menu-item"
-      >{{ item.label }}</a
+  <div class="toolbar__right-container">
+    <ng-container
+      *ngIf="
+        this.userService.isLoggedIn() | async as isLoggedIn;
+        else loginButton
+      "
     >
-  </div>
-  <div class="right-container">
-    <ng-container *ngIf="isLoggedIn; else loginButton">
-      <button mat-icon-button>
+      <button mat-icon-button class="toolbar__account-icon">
         <mat-icon>account_circle</mat-icon>
       </button>
-      <button mat-button (click)="logout()">Выход</button>
+      <button mat-button (click)="logout()" class="toolbar__logout-button">
+        Выход
+      </button>
     </ng-container>
     <ng-template #loginButton>
-      <button mat-button (click)="openSign()">Вход</button>
+      <button mat-button (click)="openSign()" class="toolbar__login-button">
+        Вход
+      </button>
+      <button
+        mat-flat-button
+        color="accent"
+        class="toolbar__sign-button toolbar__sign-button--accent"
+      >
+        Регистрация
+      </button>
     </ng-template>
   </div>
 </mat-toolbar>
-<mat-sidenav-container>
-  <mat-sidenav #sidenav [fixedInViewport]="true" mode="side">
-    <div *ngFor="let item of menuItems">
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav [fixedInViewport]="true" mode="side" class="sidenav">
+    <div *ngFor="let item of menuItems" class="sidenav__item-container">
       <a
         (click)="sidenav.close()"
         mat-button
         [routerLink]="item.link"
-        class="side-menu-item"
+        class="sidenav__item"
       >
         {{ item.label }}
       </a>
