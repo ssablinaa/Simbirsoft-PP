@@ -1,33 +1,39 @@
 <app-header></app-header>
 <mat-card class="example-card">
-  <mat-card-content class="content-container">
-    <div class="text-container">
-      <p>Краудфандинговая платформа для мечтателей</p>
-      <p>Поддерживайте любимые проекты!</p>
-      <button mat-raised-button class="btn-new">Начать</button>
+  <mat-card-content class="example-card__content-container">
+    <div class="example-card__text-container">
+      <p class="example-card__text">
+        Краудфандинговая платформа для мечтателей
+      </p>
+      <p class="example-card__text">Поддерживайте любимые проекты!</p>
+      <button mat-button class="example-card__button-start">Начать</button>
     </div>
-    <img class="img-float" src="./assets/images/main.svg" alt="Main photo" />
+    <img
+      class="example-card__img-main"
+      src="./assets/images/main.svg"
+      alt="Main photo"
+    />
   </mat-card-content>
 </mat-card>
-<div class="statistics-container">
-  <ul class="statistics-list">
-    <li class="statistics-item">
-      <h3 class="statistics-value">258</h3>
-      <h4 class="statistics-label">финансируемые проекты</h4>
+<div class="statistics">
+  <ul class="statistics__list">
+    <li class="statistics__item">
+      <h3 class="statistics__value">258</h3>
+      <h4 class="statistics__label">финансируемые проекты</h4>
     </li>
-    <li class="statistics-item">
-      <h3 class="statistics-value">$800</h3>
-      <h4 class="statistics-label">собрано</h4>
+    <li class="statistics__item">
+      <h3 class="statistics__value">$800</h3>
+      <h4 class="statistics__label">собрано</h4>
     </li>
-    <li class="statistics-item">
-      <h3 class="statistics-value">9506</h3>
-      <h4 class="statistics-label">в перспективе</h4>
+    <li class="statistics__item">
+      <h3 class="statistics__value">9506</h3>
+      <h4 class="statistics__label">в перспективе</h4>
     </li>
   </ul>
 </div>
-<div class="container_main">
-  <div class="container_left">
-    <mat-card class="one-card">
+<div class="main-container">
+  <div class="main-container__left">
+    <mat-card class="main-container__one-card">
       <mat-card-header>
         <mat-card-title>Будущий проект</mat-card-title>
       </mat-card-header>
@@ -41,17 +47,17 @@
       </mat-card-actions>
     </mat-card>
   </div>
-  <div class="container_additional">
-    <mat-card *ngFor="let card of cardsSlice" class="container_cards">
+  <div class="main-container__additional">
+    <mat-card *ngFor="let card of cardsSlice" class="main-container__card">
       <mat-card-header>
         <mat-card-title>{{ card.title }}</mat-card-title>
       </mat-card-header>
-      <div class="image-container">
+      <div class="main-container__image-container">
         <img
           mat-card-image
           [src]="card.imageSrc"
           [alt]="card.altText"
-          class="image_cards"
+          class="main-container__image"
         />
       </div>
       <mat-card-actions>
