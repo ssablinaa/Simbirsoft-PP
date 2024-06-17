@@ -1,100 +1,74 @@
 @import '../../../assets/colors/colors.scss';
+@import '../../../assets/mixins/_mixins.scss';
 
-.content-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
+.example-card {
+  &__content-container {
+    @include center-flex;
+    @include responsive-padding(20px, 10px);
 
-  @media (max-width: 900px) {
-    flex-direction: column;
-    padding: 10px;
+    @media (max-width: 900px) {
+      flex-direction: column;
+    }
   }
-}
 
-.text-container {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: 20px;
-  gap: 20px;
-  font-size: 30px;
-  text-align: center;
-  p {
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+    gap: 20px;
+    font-size: 30px;
+    text-align: center;
+
+    @media (max-width: 900px) {
+      padding: 10px;
+    }
+  }
+
+  &__text {
     margin: 0;
     line-height: 1.5;
   }
 
-  .btn-new {
+  &__button-start {
     width: 40%;
     margin: 0 auto;
     display: block;
-    border-radius: 40px !important;
+    border-radius: 40px;
     box-shadow: 0 5px 15px 0 $highlight-color;
     transition: 0.5s;
 
     @media (max-width: 900px) {
       width: 80%;
     }
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
   }
 
-  @media (max-width: 900px) {
-    padding: 10px;
+  &__img-main {
+    width: 50%;
+    height: auto;
+    margin-left: 20px;
+
+    @media (max-width: 900px) {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 20px;
+    }
   }
 }
 
-.img-float {
-  width: 50%;
-  height: auto;
-  margin-left: 20px;
-
-  @media (max-width: 900px) {
-    width: 100%;
-    margin-left: 0;
-    margin-bottom: 20px;
-  }
-}
-.statistics-container {
+.statistics {
   text-align: center;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
   overflow-x: auto;
   margin: 0 4em;
   padding: 1em 2em;
-}
 
-.statistics-list {
-  width: 90%;
-  display: inline-flex;
-  flex-wrap: nowrap;
-  background-color: $white-color;
-  list-style-type: none;
-}
-
-.statistics-item {
-  flex: 1;
-  padding: 1em 2em;
-  border: 1px solid $border-color;
-}
-
-.statistics-value {
-  font-size: 28px;
-  color: $highlight-color;
-}
-
-.statistics-label {
-  font-size: 14px;
-  color: $text-color;
-  text-transform: lowercase;
-  margin: 0;
-}
-.statistics-value,
-.statistics-label {
-  text-align: center;
-}
-
-@media (max-width: 900px) {
-  .statistics-container {
+  @media (max-width: 900px) {
     margin: 0 1em;
     padding: 1em;
     max-width: 100%;
@@ -106,114 +80,126 @@
     gap: 1em;
   }
 
-  .statistics-value {
-    font-size: 20px;
-    font-size: 24px;
+  &__list {
+    width: 90%;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    background-color: $white-color;
+    list-style-type: none;
   }
 
-  .statistics-item {
-    flex: 1 0 300px;
-    padding: 1em;
-    max-width: 100%;
-    box-sizing: border-box;
+  &__item {
+    flex: 1;
+    padding: 1em 2em;
+    border: 1px solid $border-color;
+  }
+
+  &__value {
+    font-size: 28px;
+    color: $highlight-color;
+    text-align: center;
+
+    @media (max-width: 900px) {
+      font-size: 24px;
+    }
+  }
+
+  &__label {
+    font-size: 14px;
+    color: $text-color;
+    text-transform: lowercase;
+    margin: 0;
+    text-align: center;
   }
 }
-.container_main {
+
+.main-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
-}
 
-.container_left,
-.container_additional {
-  width: 40%;
-  flex: 1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
+  &__left,
+  &__additional {
+    width: 40%;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 
-.container_left {
-  margin-right: 5%;
-}
-
-.one-card {
-  width: 100%;
-}
-
-.container_cards {
-  width: calc(50% - 20px);
-  display: flex;
-  flex-direction: column;
-  margin-right: 0;
-}
-
-.image-container {
-  width: 100%;
-  height: 70%;
-}
-
-.image-container img {
-  top: 0;
-  left: 0;
-  width: 100%;
-  max-height: 250px;
-  object-fit: cover;
-}
-
-mat-card-actions {
-  padding: 16px;
-  border-top: 1px solid $secondary-color;
-  display: flex;
-  justify-content: center;
-
-  button {
-    background-color: $primary-color;
-    color: $white-color;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    transition: $white-color 0.2s;
-
-    &:hover {
-      background-color: $primary-hover-color;
+    @media (max-width: 900px) {
+      width: 100%;
+      margin-right: 0;
+      gap: 10px;
     }
   }
-}
-mat-card-header {
-  justify-content: center;
-  padding: 16px;
-  border-bottom: 1px solid;
 
-  mat-card-title {
-    font-size: 1.5em;
-    font-weight: 700;
-    color: $primary-color;
-  }
-}
-.image-cards {
-  width: 100%;
-  padding-top: 75%;
-}
-
-@media (max-width: 900px) {
-  .container_main {
-    padding: 10px;
-    gap: 10px;
+  &__left {
+    margin-right: 5%;
   }
 
-  .container_left,
-  .container_additional {
+  &__one-card {
     width: 100%;
-    margin-right: 0;
-    gap: 10px;
   }
 
-  .one-card,
-  .container_cards {
-    flex: 1 100%;
+  &__card {
+    width: calc(50% - 20px);
+    display: flex;
+    flex-direction: column;
+    margin-right: 0;
+  }
+  &__card-header {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__card-title {
+    text-align: center;
+    color: $primary-color;
+    font-weight: 700;
+  }
+
+  &__card-actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__image-container {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__button-details,
+  &__button-card {
+    @include button-style($primary-color, $white-color);
+  }
+
+  @media (max-width: 900px) {
+    & {
+      padding: 10px;
+      gap: 10px;
+    }
+
+    &__left,
+    &__additional {
+      width: 100%;
+      margin-right: 0;
+      gap: 10px;
+    }
+
+    &__one-card,
+    &__card {
+      flex: 1 100%;
+    }
   }
 }

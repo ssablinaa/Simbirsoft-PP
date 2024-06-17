@@ -1,4 +1,5 @@
 @import '../../../../assets/colors/colors.scss';
+@import '../../../../assets/mixins/_mixins.scss';
 
 .toolbar {
   background-color: $white-color;
@@ -9,8 +10,7 @@
   padding-right: 6%;
 
   &__left-container {
-    display: flex;
-    align-items: center;
+    @include center-flex;
   }
 
   &__title {
@@ -35,22 +35,20 @@
   }
 
   &__right-container {
-    display: flex;
-    align-items: center;
+    @include center-flex;
   }
 
   &__account-icon {
     margin-right: 10px;
     color: $primary-color;
-    display: flex;
-    align-items: center;
+
+    @include center-flex;
   }
 
   &__logout-button,
   &__login-button,
   &__sign-button {
-    display: flex;
-    align-items: center;
+    @include center-flex;
     color: $text-color;
   }
 
