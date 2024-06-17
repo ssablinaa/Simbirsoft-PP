@@ -181,7 +181,16 @@
 
   &__button-details,
   &__button-card {
-    @include button-style($primary-color, $white-color);
+    background-color: $primary-color;
+    color: $white-color;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
   }
 
   @media (max-width: 900px) {
