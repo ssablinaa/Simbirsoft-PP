@@ -6,15 +6,21 @@
   box-shadow: 0 4px 8px $black-color;
   background-color: $white-color;
   width: 400px;
+  display: flex;
+  flex-direction: column;
+
   @media (max-width: 768px) {
     width: 250px;
   }
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+  }
 
   &__form-button-close {
-    position: absolute;
     width: 40px;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     cursor: pointer;
     background-color: $primary-color;
   }
@@ -23,16 +29,15 @@
     display: block;
     margin: 0 auto;
     max-width: 100px;
-    border-radius: 50%;
   }
+}
 
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
-  &__form-label {
+  &__label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
@@ -40,7 +45,7 @@
     color: $text-color;
   }
 
-  &__form-input {
+  &__input {
     margin: auto;
     padding: 10px;
     border: 3px solid;
@@ -58,13 +63,13 @@
     }
   }
 
-  &__form-error {
+  &__error {
     font-size: 12px;
     color: $black-color;
     font-weight: 700;
   }
 
-  &__form-button {
+  &__submit {
     margin: auto;
     padding: 10px;
     border: 3px solid;
@@ -88,16 +93,23 @@
   }
 
   &__password-container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__div-wrap {
     position: relative;
+    display: flex;
+    align-items: center;
+  }
 
-    button {
-      position: absolute;
-      top: 50%;
-      right: 10px;
-      transform: translateY(0%);
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-    }
+  &__toggle {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -40px;
   }
 }

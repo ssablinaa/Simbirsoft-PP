@@ -1,11 +1,11 @@
 <mat-toolbar color="primary" class="footer-toolbar">
   <div class="footer-toolbar__container">
-    <div class="footer-toolbar__item" *ngFor="let section of footerSections">
+    <div *ngFor="let section of footerSections" class="footer-toolbar__item">
       <h3 class="footer-toolbar__title">{{ section.title }}</h3>
       <ul class="footer-toolbar__sections">
         <li
-          class="footer-toolbar__section-item"
           *ngFor="let link of section.links"
+          class="footer-toolbar__section-item"
         >
           <a class="footer-toolbar__link" [href]="link.url">{{ link.text }}</a>
         </li>
@@ -13,9 +13,9 @@
     </div>
     <div class="footer-toolbar__social-icons">
       <a
-        class="footer-toolbar__icons"
         *ngFor="let icon of socialIcons"
         [href]="icon.url"
+        class="footer-toolbar__icons"
       >
         <i [class]="icon.iconClass"></i>
       </a>

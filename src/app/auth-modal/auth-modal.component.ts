@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { UserService } from '../services/user.service';
 
@@ -9,54 +9,37 @@ import { UserService } from '../services/user.service';
   styleUrl: './auth-modal.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AuthModalComponent {
+export class AuthModalComponent implements OnInit {
   hidePassword = true;
-
-  authForm: FormGroup = new FormGroup({
-    userName: new FormControl('', Validators.required),
-    userEmail: new FormControl('', [
-      Validators.required,
-      Validators.email,
-      Validators.maxLength(150),
-    ]),
-    userPassword: new FormControl('', [
-      Validators.required,
-      Validators.maxLength(150),
-    ]),
-  });
+  authForm: FormGroup;
 
   constructor(
+    private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<AuthModalComponent>,
     private userService: UserService,
   ) {
-    this.onreInitForm();
+    this.authForm = new FormGroup({});
   }
 
-  onClose(): void {
+  ngOnInit() {
+    this.authForm = this.formBuilder.group({
+      userName: ['', Validators.required],
+      userEmail: [
+        '',
+        [Validators.required, Validators.email, Validators.maxLength(150)],
+      ],
+      userPassword: ['', [Validators.required, Validators.maxLength(150)]],
+    });
+  }
+
+  onClose() {
     this.dialogRef.close();
   }
-  togglePasswordVisibility(): void {
-    this.hidePassword = !this.hidePassword;
-  }
+
   onSave() {
     if (this.authForm.valid) {
       this.userService.login();
       this.dialogRef.close();
     }
-  }
-
-  onreInitForm() {
-    this.authForm = new FormGroup({
-      userName: new FormControl('', Validators.required),
-      userEmail: new FormControl('', [
-        Validators.required,
-        Validators.email,
-        Validators.maxLength(150),
-      ]),
-      userPassword: new FormControl('', [
-        Validators.required,
-        Validators.maxLength(150),
-      ]),
-    });
   }
 }

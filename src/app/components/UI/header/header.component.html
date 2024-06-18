@@ -22,7 +22,7 @@
   <div class="toolbar__right-container">
     <ng-container
       *ngIf="
-        this.userService.isLoggedIn() | async as isLoggedIn;
+        this.userService.isLoggedIn | async as isLoggedIn;
         else loginButton
       "
     >

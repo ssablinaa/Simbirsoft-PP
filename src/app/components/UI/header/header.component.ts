@@ -18,6 +18,7 @@ export class HeaderComponent {
   openSign(): void {
     this.dialog.open(AuthModalComponent, {});
   }
+
   logout() {
     this.userService.logout();
   }
