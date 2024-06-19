@@ -15,11 +15,11 @@ export class HeaderComponent {
     public userService: UserService,
   ) {}
 
-  openSign(): void {
+  public openSign() {
     this.dialog.open(AuthModalComponent, {});
   }
 
-  logout() {
+  public logout() {
     this.userService.logout();
   }
 

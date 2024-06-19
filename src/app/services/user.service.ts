@@ -18,12 +18,12 @@ export class UserService {
     return this.loggedIn;
   }
 
-  login() {
+  public login() {
     this.loggedIn.next(true);
     localStorage.setItem('loggedIn', 'true');
   }
 
-  logout() {
+  public logout() {
     this.loggedIn.next(false);
     localStorage.removeItem('loggedIn');
   }

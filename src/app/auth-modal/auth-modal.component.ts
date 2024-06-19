@@ -11,15 +11,13 @@ import { UserService } from '../services/user.service';
 })
 export class AuthModalComponent implements OnInit {
   hidePassword = true;
-  authForm: FormGroup;
+  authForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<AuthModalComponent>,
     private userService: UserService,
-  ) {
-    this.authForm = new FormGroup({});
-  }
+  ) {}
 
   ngOnInit() {
     this.authForm = this.formBuilder.group({
@@ -32,11 +30,11 @@ export class AuthModalComponent implements OnInit {
     });
   }
 
-  onClose() {
+  public onClose() {
     this.dialogRef.close();
   }
 
-  onSave() {
+  public onSave() {
     if (this.authForm.valid) {
       this.userService.login();
       this.dialogRef.close();
