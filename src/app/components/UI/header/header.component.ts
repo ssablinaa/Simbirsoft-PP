@@ -1,4 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AuthModalComponent } from '../../../auth-modal/auth-modal.component';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +10,19 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
+  constructor(
+    public dialog: MatDialog,
+    public userService: UserService,
+  ) {}
+
+  public openSign() {
+    this.dialog.open(AuthModalComponent, {});
+  }
+
+  public logout() {
+    this.userService.logout();
+  }
+
   menuItems = [
     { label: 'Главная', link: '' },
     { label: 'Музыка', link: '/music' },

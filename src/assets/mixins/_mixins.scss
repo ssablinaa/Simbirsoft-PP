@@ -1,0 +1,13 @@
+@mixin center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin responsive-padding($default-padding, $mobile-padding) {
+  padding: $default-padding;
+
+  @media (max-width: 900px) {
+    padding: $mobile-padding;
+  }
+}

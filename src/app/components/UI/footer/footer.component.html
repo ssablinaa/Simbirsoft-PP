@@ -1,15 +1,22 @@
 <mat-toolbar color="primary" class="footer-toolbar">
-  <div class="container">
-    <div class="item" *ngFor="let section of footerSections">
-      <h3 class="title">{{ section.title }}</h3>
-      <ul class="sections">
-        <li *ngFor="let link of section.links">
-          <a class="link" [href]="link.url">{{ link.text }}</a>
+  <div class="footer-toolbar__container">
+    <div *ngFor="let section of footerSections" class="footer-toolbar__item">
+      <h3 class="footer-toolbar__title">{{ section.title }}</h3>
+      <ul class="footer-toolbar__sections">
+        <li
+          *ngFor="let link of section.links"
+          class="footer-toolbar__section-item"
+        >
+          <a class="footer-toolbar__link" [href]="link.url">{{ link.text }}</a>
         </li>
       </ul>
     </div>
-    <div class="social-icons">
-      <a class="icons" *ngFor="let icon of socialIcons" [href]="icon.url">
+    <div class="footer-toolbar__social-icons">
+      <a
+        *ngFor="let icon of socialIcons"
+        [href]="icon.url"
+        class="footer-toolbar__icons"
+      >
         <i [class]="icon.iconClass"></i>
       </a>
     </div>

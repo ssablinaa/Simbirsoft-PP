@@ -1,0 +1,91 @@
+<div class="auth-modal">
+  <div class="auth-modal__header">
+    <button
+      mat-icon-button
+      class="auth-modal__form-button-close"
+      (click)="onClose()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <img class="auth-modal__img" src="./assets/images/avatar.png" alt="Logo" />
+  <form class="form-content" [formGroup]="authForm">
+    <div class="form-content__group">
+      <label for="id_userName" class="form-content__label">Имя </label>
+      <input
+        id="id_userName"
+        name="userName"
+        formControlName="userName"
+        class="form-content__input"
+      />
+    </div>
+    <div
+      *ngIf="
+        authForm.controls['userName'].invalid &&
+        authForm.controls['userName'].touched
+      "
+      class="form-content__error"
+    >
+      Неверно указано имя!
+    </div>
+    <div class="form-content__group">
+      <label for="id_userEmail" class="form-content__label">Email </label>
+      <input
+        id="id_userEmail"
+        name="userEmail"
+        formControlName="userEmail"
+        class="form-content__input"
+      />
+    </div>
+    <div
+      *ngIf="
+        authForm.controls['userEmail'].invalid &&
+        authForm.controls['userEmail'].touched
+      "
+      class="form-content__error"
+    >
+      Неверно указан email!
+    </div>
+    <div class="form-content__group-password">
+      <label for="id_userPassword" class="form-content__label">Пароль</label>
+      <div class="form-content__input-wrap">
+        <input
+          id="id_userPassword"
+          [type]="hidePassword ? 'password' : 'text'"
+          name="userPassword"
+          formControlName="userPassword"
+          class="form-content__input"
+        />
+        <button
+          mat-icon-button
+          class="form-content__toggle"
+          type="button"
+          (click)="hidePassword = !hidePassword"
+        >
+          <mat-icon>{{
+            hidePassword ? 'visibility_off' : 'visibility'
+          }}</mat-icon>
+        </button>
+      </div>
+      <div
+        *ngIf="
+          authForm.controls['userPassword'].invalid &&
+          authForm.controls['userPassword'].touched
+        "
+        class="form-content__error"
+      >
+        Неверно указан пароль!
+      </div>
+    </div>
+
+    <button
+      class="form-content__submit"
+      type="submit"
+      (click)="onSave()"
+      [disabled]="authForm.invalid"
+    >
+      Сохранить
+    </button>
+  </form>
+</div>
