@@ -9,8 +9,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './header.component';
 import { HomeComponent } from '../../../pages/home/home.component';
+import { AnimalsComponent } from '../../../pages/animals/animals.component';
 
 export const routes: Routes = [
+  { path: 'animals', component: AnimalsComponent },
   { path: 'art', component: HomeComponent },
   { path: 'music', component: HomeComponent },
   { path: 'dance', component: HomeComponent },

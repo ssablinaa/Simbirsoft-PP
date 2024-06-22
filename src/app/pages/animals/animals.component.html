@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" class="toolbar">
+  <div class="toolbar__container">
+    <mat-icon fontIcon="pets" class="toolbar__icon"></mat-icon>
+    <span class="toolbar__title">Гостиница для собак </span>
+    <nav class="toolbar__nav">
+      <a mat-button routerLink="/about" class="toolbar__link">О нас</a>
+      <a mat-button routerLink="/gallery" class="toolbar__link">Галерея</a>
+      <a mat-button routerLink="/contact" class="toolbar__link">Контакты</a>
+    </nav>
+  </div>
+</mat-toolbar>
+<div *ngIf="error">
+  <p>Error: {{ error }}</p>
+</div>
+
+<div *ngIf="a$ | async as dogImageUrl">
+  <img [src]="dogImageUrl.message" alt="Dog Image" />
+</div>
