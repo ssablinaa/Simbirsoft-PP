@@ -1,18 +1,85 @@
-<mat-toolbar color="primary" class="toolbar">
-  <div class="toolbar__container">
-    <mat-icon fontIcon="pets" class="toolbar__icon"></mat-icon>
-    <span class="toolbar__title">Гостиница для собак </span>
+<mat-toolbar class="toolbar">
+  <div class="toolbar__left-container">
+    <button
+      mat-icon-button
+      class="toolbar__menu-icon"
+      (click)="sidenav.toggle()"
+      id="menuIcon"
+    >
+      <mat-icon>pets</mat-icon>
+    </button>
+    <mat-icon class="toolbar__icon" routerLink="">pets</mat-icon>
+    <span id="menuTitle" class="toolbar__menu-title">Гостиница для собак</span>
+  </div>
+  <div class="toolbar__center-container">
     <nav class="toolbar__nav">
-      <a mat-button routerLink="/about" class="toolbar__link">О нас</a>
-      <a mat-button routerLink="/gallery" class="toolbar__link">Галерея</a>
-      <a mat-button routerLink="/contact" class="toolbar__link">Контакты</a>
+      <a
+        mat-button
+        *ngFor="let item of headerItems"
+        [routerLink]="item.link"
+        class="toolbar__link"
+      >
+        {{ item.label }}
+      </a>
     </nav>
   </div>
 </mat-toolbar>
-<div *ngIf="error">
-  <p>Error: {{ error }}</p>
-</div>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [fixedInViewport]="true" mode="side" class="sidenav">
+    <button
+      mat-icon-button
+      (click)="sidenav.close()"
+      class="sidenav__close-button"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+    <button mat-icon-button class="sidenav__home-button">
+      <mat-icon routerLink="">home</mat-icon>
+    </button>
+    <nav class="sidenav__nav">
+      <a
+        mat-button
+        *ngFor="let item of headerItems"
+        [routerLink]="item.link"
+        class="sidenav__link"
+      >
+        {{ item.label }}
+      </a>
+    </nav>
+  </mat-sidenav>
+</mat-sidenav-container>
 
-<div *ngIf="a$ | async as dogImageUrl">
-  <img [src]="dogImageUrl.message" alt="Dog Image" />
+<div class="container">
+  <div class="container__img">
+    <div *ngIf="a$ | async as dogImageUrl">
+      <div class="img-wrapper">
+        <mat-progress-spinner
+          *ngIf="loading$ | async"
+          class="loader"
+          [diameter]="50"
+          mode="indeterminate"
+        ></mat-progress-spinner>
+      </div>
+      <img
+        class="container__img-dog"
+        [src]="dogImageUrl.message"
+        alt="Dog Image"
+      />
+    </div>
+  </div>
+  <div class="container__text">
+    <p class="container__text-descrip">
+      В мире насчитывается около 400 миллионов домашних животных, подсчитали
+      специалисты компании Mars Petcare. Больше всего кошек и собак содержатся в
+      семьях в США, Китае и России, отмечают в организации по страхованию
+      питомцев Petsecure. В современном мире деятельность, связанная с домашними
+      животными, входит в число более доходных проектов. Каждый год у людей
+      появляется необходимость в отпуске, и в это же время появляется проблема
+      комфортного пребывания питомцев в отсутствие хозяев. В связи с этим
+      возникает потребность в зоогостиницах. Получается, что данный вид бизнеса
+      необходимо развивать, так как он является прибыльным, малоконкурентным, а
+      также необходимым в современном мире.
+    </p>
+    <button mat-button class="container__button">Хочу узнать больше!</button>
+  </div>
 </div>

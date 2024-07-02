@@ -11,3 +11,7 @@
     padding: $mobile-padding;
   }
 }
+
+@mixin box-shadow($x-offset, $y-offset, $blur, $color, $opacity) {
+  box-shadow: $x-offset $y-offset $blur rgba($color, $opacity);
+}

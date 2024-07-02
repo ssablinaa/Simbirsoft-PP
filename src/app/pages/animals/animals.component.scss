@@ -1,67 +1,154 @@
 @import '../../../assets/colors/colors.scss';
 @import '../../../assets/mixins/_mixins.scss';
-
 .toolbar {
-  background-color: $primary-color;
+  background-color: $dog-color;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 6%;
+  padding-right: 6%;
+  align-items: center;
 
-  &__container {
+  &__left-container {
+    @include center-flex;
+    gap: 10px;
+  }
+  &__icon {
+    color: $white-color;
+    cursor: pointer;
+    @media (max-width: 900px) {
+      display: none;
+    }
+  }
+
+  &__menu-title {
+    height: 46px;
+    line-height: 46px;
+    font-size: 1.5rem;
+    color: $white-color;
+  }
+
+  &__menu-icon {
+    background-color: transparent;
+    border: none;
+    color: $white-color;
+    @media (min-width: 900px) {
+      display: none;
+    }
+  }
+
+  &__center-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 16px;
-    width: 100%;
-  }
-
-  &__icon {
-    margin-right: 16px;
-    font-size: 1.5rem;
-  }
-
-  &__title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    flex-grow: 1;
-    white-space: nowrap;
-  }
-
-  &__nav {
-    display: flex;
-    gap: 16px;
+    @media (max-width: 900px) {
+      display: none;
+    }
   }
 
   &__link {
+    color: $white-color;
+    margin: 0 10px;
     text-decoration: none;
-    color: inherit;
+  }
+}
+
+.sidenav {
+  background-color: $dog-color;
+  width: 160px;
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
   }
 
-  @media (max-width: 768px) {
-    &__container {
-      flex-direction: column;
-      align-items: flex-start;
-    }
+  &__link {
+    color: $text-color;
+    margin: 10px 0;
+    text-decoration: none;
+  }
+  @media (min-width: 900px) {
+    display: none;
+  }
 
-    &__title {
-      margin-bottom: 8px;
-    }
+  &__close-button,
+  &__home-button {
+    color: $text-color;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}
 
-    &__nav {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
+.container {
+  background-color: $dog-bg-color;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 50px;
+  padding: 20px;
+
+  &__img {
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__img-dog {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+    @include box-shadow(0, 4px, 8px, #ff8d12, 0.3);
+  }
+
+  &__text {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $dog-color;
+    padding: 20px;
+    border-radius: 10px;
+    @include box-shadow(0, 4px, 8px, #ff8d12, 0.3);
+    gap: 30px;
+    text-align: center;
+  }
+
+  &__text-descrip {
+    color: $text-color;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 700;
+    word-wrap: break-word;
+  }
+
+  &__button {
+    background: $button-color;
+    width: 300px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
+    @include box-shadow(0, 10px, 8px, #a65b0a, 0.748);
+    &:hover {
+      transform: scale(1.05);
     }
   }
 
-  @media (max-width: 480px) {
-    &__icon {
-      margin-right: 8px;
+  @media (min-width: 900px) {
+    &__img {
+      flex: 1;
+      max-width: 50%;
     }
 
-    &__title {
-      font-size: 1.2rem;
-    }
-
-    &__nav {
-      gap: 4px;
+    &__text {
+      flex: 1;
+      max-width: 50%;
+      text-align: left;
     }
   }
 }

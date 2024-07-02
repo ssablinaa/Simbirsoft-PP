@@ -7,7 +7,7 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AnimalsService {
-  private apiUrl = 'https://dog.ceo/api/breeds/image/rando';
+  private apiUrl = 'https://dog.ceo/api/breeds/image/random';
   constructor(private http: HttpClient) {}
 
   public getAnimals(): Observable<any> {
